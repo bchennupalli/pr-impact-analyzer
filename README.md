@@ -1,34 +1,52 @@
 # PR Impact Analyzer
 
-PR Impact Analyzer helps you understand **which APIs, modules, and system parts are impacted by a Pull Request**, not just which files changed.
+**PR Impact Analyzer** is a lightweight CLI tool that helps you understand the impact of your Pull Requests:
 
-✅ Builds a full code dependency graph  
-✅ Maps changes to API endpoints / modules  
-✅ Reports **impact radius** of a PR  
-✅ Works as CLI tool, GitHub bot, and Web dashboard
+✅ Shows which **modules** are impacted  
+✅ Shows which **API Routes** (FastAPI / Flask) may be impacted  
+✅ Works on large projects → proven on full-stack FastAPI apps  
+✅ Easy to integrate with GitHub Actions or CI/CD  
 
-## Example Output
-
-<img src="example_report.png" alt="Example Impact Report" width="600"/>
+---
 
 ## Features
 
-- Analyze PR diffs
-- Build code dependency graph
-- Map changes to system impact (APIs, modules)
-- CLI report / HTML / GitHub bot comments
+- Analyze Git diffs between branches
+- Build static code dependency graph
+- Map changed files → impacted modules
+- Map impacted modules → API routes (FastAPI supported)
+- CLI output + easy HTML report integration possible
 
-## Roadmap
+---
 
-- Python support (initial)
-- JavaScript/TypeScript support (next)
-- Java support (later)
-- Test impact suggestion
-- Infra impact suggestion
-- Web dashboard
+## Example Output
 
-## Getting Started
+```plaintext
+[*] Analyzing Git diff...
+[+] Changed files: ['pr_impact_analyzer/cli.py']
+[*] Building dependency graph...
+[*] Mapping impact...
+[*] Generating report...
 
-```bash
-pip install pr-impact-analyzer
-pr-impact-analyzer --base main --pr feature-branch
+=== Impacted Modules ===
+- app.main
+- argparse
+- ast
+- dotenv
+- networkx
+- os
+- pr_impact_analyzer.api_mapper
+- pr_impact_analyzer.cli
+- pr_impact_analyzer.dep_graph
+- pr_impact_analyzer.git_diff
+- pr_impact_analyzer.impact_mapper
+- pr_impact_analyzer.utils
+- subprocess
+- sys
+
+=== API Routes (FastAPI) ===
+/api/v1/items/ → app.api.routes.items
+/api/v1/items/{id} → app.api.routes.items
+/api/v1/login/access-token → app.api.routes.login
+/api/v1/users → app.api.routes.users
+...
