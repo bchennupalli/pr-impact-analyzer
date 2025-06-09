@@ -97,17 +97,15 @@ FIRST_SUPERUSER_PASSWORD=password
 ```
 2️⃣ Before running the CLI, set these environment variables:
 
-```
+```bash
 export FASTAPI_PROJECT_PATH=/path/to/your/fastapi-project/backend
 export FASTAPI_DOTENV_PATH=/path/to/your/fastapi-project/backend/.env
 ```
 
-2️⃣ In `cli.py`, update this section:
+3️⃣ Run the CLI:
 
-```python
-load_dotenv(dotenv_path="/path/to/your/fastapi-project/backend/.env")
-sys.path.insert(0, "/path/to/your/fastapi-project/backend")
-from app.main import app as fastapi_app
+```bash
+python3 -m pr_impact_analyzer.cli --base main --pr HEAD
 ```
 
 ✅ Done → API routes will be mapped and included in the report.
