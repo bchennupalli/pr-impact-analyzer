@@ -1,0 +1,40 @@
+# .github/workflows/ci.yml
+
+name: PR Impact Analyzer
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+
+jobs:
+  analyze-impact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install -e .
+          pip install python-dotenv PyJWT sqlmodel passlib pydantic-settings email-validator python-multipart
+
+      - name: Run PR Impact Analyzer CLI
+        run: |
+          source venv/bin/activate
+          python3 -m pr_impact_analyzer.cli --base origin/main --pr HEAD
+
+      - name: Post PR Comment with Impact Report
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: impact_report.txt

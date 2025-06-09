@@ -1,0 +1,2 @@
+[console_scripts]
+pr-impact-analyzer = pr_impact_analyzer.cli:main

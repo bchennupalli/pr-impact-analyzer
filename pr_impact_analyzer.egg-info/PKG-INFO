@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: pr-impact-analyzer
+Version: 0.1.0
+Summary: Analyze PR impact on APIs and modules
+Author: Your Name
+License: MIT
+Keywords: git pr impact analyzer code graph
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: networkx
+Requires-Dist: jinja2
+Dynamic: author
+Dynamic: classifier
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary

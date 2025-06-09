@@ -1,0 +1,45 @@
+[*] Analyzing Git diff...
+[+] Changed files: ['pr_impact_analyzer/cli.py']
+
+[*] Building dependency graph...
+[*] Mapping impact...
+[*] Generating report...
+
+### Impacted Modules:
+
+- argparse
+- pr_impact_analyzer.dep_graph
+- networkx
+- pr_impact_analyzer.api_mapper
+- pr_impact_analyzer.utils
+- sys
+- pr_impact_analyzer.impact_mapper
+- pr_impact_analyzer.git_diff
+- os
+- subprocess
+- pr_impact_analyzer.cli
+- ast
+- dotenv
+- app.main
+
+### API Routes:
+
+/api/v1/openapi.json → fastapi.applications
+/docs → fastapi.applications
+/docs/oauth2-redirect → fastapi.applications
+/redoc → fastapi.applications
+/api/v1/login/access-token → app.api.routes.login
+/api/v1/login/test-token → app.api.routes.login
+/api/v1/password-recovery/{email} → app.api.routes.login
+/api/v1/reset-password/ → app.api.routes.login
+/api/v1/password-recovery-html-content/{email} → app.api.routes.login
+/api/v1/users/ → app.api.routes.users
+/api/v1/users/me → app.api.routes.users
+/api/v1/users/me/password → app.api.routes.users
+/api/v1/users/signup → app.api.routes.users
+/api/v1/users/{user_id} → app.api.routes.users
+/api/v1/utils/test-email/ → app.api.routes.utils
+/api/v1/utils/health-check/ → app.api.routes.utils
+/api/v1/items/ → app.api.routes.items
+/api/v1/items/{id} → app.api.routes.items
+/api/v1/private/users/ → app.api.routes.private
