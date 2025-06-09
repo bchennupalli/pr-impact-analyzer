@@ -50,3 +50,4 @@
 /api/v1/login/access-token → app.api.routes.login
 /api/v1/users → app.api.routes.users
 ...
+![CI](https://github.com/yourusername/pr-impact-analyzer/actions/workflows/ci.yml/badge.svg)
