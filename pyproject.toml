@@ -1,0 +1,31 @@
+[project]
+name = "pr-impact-analyzer"
+version = "0.1.0"
+description = "PR Impact Analyzer CLI Tool - Understand module and API route impact of your Pull Requests."
+authors = [
+    { name="Bhaskar Pramod Chennupalli", email="chennupalli@bhaskarpramod.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "networkx",
+    "jinja2",
+    "python-dotenv",
+    "PyJWT",
+    "sqlmodel",
+    "passlib",
+    "pydantic-settings",
+    "email-validator",
+    "python-multipart",
+    "requests",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/bchennupalli/pr-impact-analyzer"
+"Repository" = "https://github.com/bchennupalli/pr-impact-analyzer"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

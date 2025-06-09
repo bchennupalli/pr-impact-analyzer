@@ -35,18 +35,25 @@ def main():
         import os
         from dotenv import load_dotenv
 
-        load_dotenv(dotenv_path="/Users/bhaskarpramodchennupalli/Documents/fastapi-example-app/backend/.env")
+        # Read env vars for FastAPI project
+        fastapi_project_path = os.getenv("FASTAPI_PROJECT_PATH")
+        dotenv_path = os.getenv("FASTAPI_DOTENV_PATH")
 
-        sys.path.insert(0, "/Users/bhaskarpramodchennupalli/Documents/fastapi-example-app/backend")
-        from app.main import app as fastapi_app
+        if fastapi_project_path and dotenv_path:
+            load_dotenv(dotenv_path=dotenv_path)
+            sys.path.insert(0, fastapi_project_path)
+            from app.main import app as fastapi_app
 
-        fastapi_routes = map_fastapi_routes(fastapi_app)
-        report_lines.append("\n### API Routes:\n")
-        for path, module in fastapi_routes.items():
-            report_lines.append(f"{path} → {module}")
+            fastapi_routes = map_fastapi_routes(fastapi_app)
+            report_lines.append("\n### API Routes:\n")
+            for path, module in fastapi_routes.items():
+                report_lines.append(f"{path} → {module}")
+        else:
+            report_lines.append("\n[!] Skipping API route mapping (FASTAPI_PROJECT_PATH and FASTAPI_DOTENV_PATH not set)\n")
 
     except Exception as e:
         report_lines.append(f"\n[!] Could not map API routes (FastAPI). Reason: {e}")
+
 
     # Output report to file for GitHub Action to post as PR comment
     with open("impact_report.txt", "w") as f:

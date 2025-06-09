@@ -1,5 +1,5 @@
 [*] Analyzing Git diff...
-[+] Changed files: ['pr_impact_analyzer/cli.py']
+[+] Changed files: ['.github/workflows/ci.yml', 'README.md']
 
 [*] Building dependency graph...
 [*] Mapping impact...
@@ -7,20 +7,6 @@
 
 ### Impacted Modules:
 
-- argparse
-- pr_impact_analyzer.dep_graph
-- networkx
-- pr_impact_analyzer.api_mapper
-- pr_impact_analyzer.utils
-- sys
-- pr_impact_analyzer.impact_mapper
-- pr_impact_analyzer.git_diff
-- os
-- subprocess
-- pr_impact_analyzer.cli
-- ast
-- dotenv
-- app.main
 
 ### API Routes:
 

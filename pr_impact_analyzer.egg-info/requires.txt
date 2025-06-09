@@ -1,2 +1,10 @@
 networkx
 jinja2
+python-dotenv
+PyJWT
+sqlmodel
+passlib
+pydantic-settings
+email-validator
+python-multipart
+requests
