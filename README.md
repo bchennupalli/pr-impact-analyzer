@@ -95,6 +95,12 @@ POSTGRES_USER=testuser
 FIRST_SUPERUSER=admin@example.com
 FIRST_SUPERUSER_PASSWORD=password
 ```
+2️⃣ Before running the CLI, set these environment variables:
+
+```
+export FASTAPI_PROJECT_PATH=/path/to/your/fastapi-project/backend
+export FASTAPI_DOTENV_PATH=/path/to/your/fastapi-project/backend/.env
+```
 
 2️⃣ In `cli.py`, update this section:
 
